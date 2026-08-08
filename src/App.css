@@ -1,0 +1,361 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f0f0f;
+  color: #f5f5f5;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 50px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #aaa;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.filters button {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.filters button:hover {
+  border-color: #ee0979;
+  color: #fff;
+}
+
+.filters button.active {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  border-color: transparent;
+  color: #fff;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #ee0979;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3 {
+  padding: 16px 16px 4px;
+  font-size: 1.1rem;
+}
+
+.card .tag {
+  display: inline-block;
+  margin: 0 16px 10px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  border-radius: 12px;
+  background: #2a2a2a;
+  color: #ff9a56;
+}
+
+.card p {
+  padding: 0 16px 16px;
+  color: #bbb;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.contact {
+  margin-top: 70px;
+  padding: 50px 30px;
+  background: #1a1a1a;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.contact p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #ee0979;
+}
+
+.contact button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.contact button:hover {
+  opacity: 0.9;
+}
+
+.contact button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-success {
+  color: #4ade80;
+  margin-top: 8px;
+}
+
+.form-error {
+  color: #f87171;
+  margin-top: 8px;
+}
+.admin-link {
+  margin-top: 20px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.admin-link:hover {
+  border-color: #ee0979;
+  color: #fff;
+}
+
+.admin-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f0f0f;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 320px;
+  padding: 40px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+}
+
+.admin-login h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.admin-login input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.admin-login button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #f5f5f5;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.admin-header button {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.admin-dashboard section {
+  margin-bottom: 40px;
+}
+
+.admin-dashboard h2 {
+  margin-bottom: 16px;
+}
+
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-dashboard th,
+.admin-dashboard td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 0.9rem;
+}
+
+.admin-dashboard th {
+  color: #999;
+  font-weight: 600;
+  background: #0f0f0f;
+}
+
+.admin-dashboard button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #ee0979;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.new-usecase-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin-bottom: 10px;
+}
+
+.new-usecase-form input,
+.new-usecase-form textarea {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #fff;
+  font-family: inherit;
+}
+
+.new-usecase-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.editing-row input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.editing-row button,
+.admin-dashboard td button {
+  margin-right: 6px;
+}
+
+.url-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: #888;
+}
