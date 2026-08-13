@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 function AdminDashboard({ username, password, onLogout }) {
   const [inquiries, setInquiries] = useState([])
   const [useCases, setUseCases] = useState([])
@@ -22,8 +24,8 @@ function AdminDashboard({ username, password, onLogout }) {
   function loadData() {
     setLoading(true)
     Promise.all([
-      fetch('http://localhost:8080/api/inquiries', { headers: authHeader }).then(r => r.json()),
-      fetch('http://localhost:8080/api/usecases').then(r => r.json())
+      fetch(`${API_URL}/api/inquiries`, { headers: authHeader }).then(r => r.json()),
+      fetch(`${API_URL}/api/usecases`).then(r => r.json())
     ]).then(([inquiriesData, useCasesData]) => {
       setInquiries(inquiriesData)
       setUseCases(useCasesData)
@@ -32,14 +34,14 @@ function AdminDashboard({ username, password, onLogout }) {
   }
 
   function deleteInquiry(id) {
-    fetch(`http://localhost:8080/api/inquiries/${id}`, {
+    fetch(`${API_URL}/api/inquiries/${id}`, {
       method: 'DELETE',
       headers: authHeader
     }).then(loadData)
   }
 
   function deleteUseCase(id) {
-    fetch(`http://localhost:8080/api/usecases/${id}`, {
+    fetch(`${API_URL}/api/usecases/${id}`, {
       method: 'DELETE',
       headers: authHeader
     }).then(loadData)
@@ -53,7 +55,7 @@ function AdminDashboard({ username, password, onLogout }) {
     e.preventDefault()
     setFormStatus('saving')
 
-    fetch('http://localhost:8080/api/usecases', {
+    fetch(`${API_URL}/api/usecases`, {
       method: 'POST',
       headers: { ...authHeader, 'Content-Type': 'application/json' },
       body: JSON.stringify(newUseCase)
@@ -89,7 +91,7 @@ function AdminDashboard({ username, password, onLogout }) {
   }
 
   function saveEdit(id) {
-    fetch(`http://localhost:8080/api/usecases/${id}`, {
+    fetch(`${API_URL}/api/usecases/${id}`, {
       method: 'PUT',
       headers: { ...authHeader, 'Content-Type': 'application/json' },
       body: JSON.stringify(editForm)
@@ -215,4 +217,4 @@ function AdminDashboard({ username, password, onLogout }) {
   )
 }
 
-export default AdminDashboard
+export default AdminDashboard 

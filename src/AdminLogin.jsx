@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+const API_URL = import.meta.env.VITE_API_URL
 function AdminLogin({ onLogin }) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -11,7 +11,7 @@ function AdminLogin({ onLogin }) {
 
     const credentials = btoa(`${username}:${password}`)
 
-    fetch('http://localhost:8080/api/inquiries', {
+    fetch(`${API_URL}/api/inquiries`, {
       headers: { Authorization: `Basic ${credentials}` }
     })
       .then(res => {

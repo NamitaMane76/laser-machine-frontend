@@ -3,7 +3,7 @@ import './App.css'
 import ContactForm from './ContactForm'
 import AdminLogin from './AdminLogin'
 import AdminDashboard from './AdminDashboard'
-
+const API_URL = import.meta.env.VITE_API_URL
 function App() {
   const [useCases, setUseCases] = useState([])
   const [industry, setIndustry] = useState('')
@@ -18,8 +18,8 @@ function App() {
   function fetchUseCases() {
     setLoading(true)
     const url = industry
-      ? `http://localhost:8080/api/usecases?industry=${industry}`
-      : 'http://localhost:8080/api/usecases'
+      ? `${API_URL}/api/usecases?industry=${industry}`
+      : `${API_URL}/api/usecases`
 
     fetch(url)
       .then(res => res.json())

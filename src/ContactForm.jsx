@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+const API_URL = import.meta.env.VITE_API_URL
 function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState('') // '', 'sending', 'success', 'error'
@@ -12,7 +12,7 @@ function ContactForm() {
     e.preventDefault()
     setStatus('sending')
 
-    fetch('http://localhost:8080/api/inquiries', {
+    fetch(`${API_URL}/api/inquiries`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
